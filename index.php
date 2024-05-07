@@ -20,19 +20,43 @@
 
     <main>
         <form action="" method="post">
-            <div>
-                <div class="email-input m-5">
+            <div class="container">
+                <div class="input-section d-flex m-5">
                     <style>
-                        .email-input {
-                            width: fit-content;
+                        .input-section {
+                            flex-wrap: wrap;
                         }
                     </style>
-                    <p>
-                        <label for="email" class="form-label">Email Adresse</label>
-                        <input type="text" id="email" name="email" class="form-control">
+                    <p class="col-6 p-2">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" value="<?php echo $_POST['name'] ?? ''; ?>">
                     </p>
-                    <button class="btn btn-primary mt-3 mb-3">Send</button>
-                    <?php include_once "./utilities.php" ?>
+                    <p class="col-6 p-2">
+                        <label for="lastname" class="form-label">Lastname</label>
+                        <input type="text" id="lastname" name="lastname" class="form-control" value="<?php echo $_POST['lastname'] ?? ''; ?>">
+                    </p>
+                    <p class="col-6 p-2">
+                        <label for="email" class="form-label">Email Adresse</label>
+                        <input type="text" id="email" name="email" class="form-control" value="<?php echo $_POST['email'] ?? ''; ?>">
+                    </p>
+                    <p class="col-6 p-2">
+                        <label for="phonenumber" class="form-label">Phone number</label>
+                        <input type="text" id="phonenumber" name="phonenumber" class="form-control" value="<?php echo $_POST['phonenumber'] ?? ''; ?>">
+                    </p>
+                    <button class="btn btn-primary m-2">Send</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <?php
+                    include_once "./utilities.php";
+                    $user_email = $_POST['email'] ?? '';
+                    $user_name = $_POST['name'] ?? '';
+                    $user_lastname = $_POST['lastname'] ?? '';
+                    $user_phonenumber = $_POST['phonenumber'] ?? '';
+                    echo nameVerification($user_name);
+                    echo lastnameVerification($user_lastname);
+                    echo emailVerification($user_email);
+                    echo phoneNumberVerification($user_phonenumber);
+                    ?>
                 </div>
             </div>
         </form>
