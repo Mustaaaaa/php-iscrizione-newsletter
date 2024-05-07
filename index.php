@@ -1,5 +1,5 @@
 <?php
-
+$userEmail = $_POST['email'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +25,19 @@
     <main>
         <form action="" method="post">
             <div>
-                <p class="email-input m-5">
-                <style>
-                    .email-input{
-                        width: 300px;
-                    }
-                </style>
-                    <label for="email" class="form-label">Indirizzo email</label>
-                    <input type="text" id="email" name="email" class="form-control">
-                </p>
+                <div class="email-input m-5">
+                    <style>
+                        .email-input {
+                            width: 300px;
+                        }
+                    </style>
+                    <p>
+                        <label for="email" class="form-label">Email Adresse</label>
+                        <input type="text" id="email" name="email" class="form-control">
+                    </p>
+                    <button class="btn btn-primary mt-3">Send</button>
+                    <p> <?php echo $userEmail?> </p>
+                </div>
             </div>
         </form>
     </main>
