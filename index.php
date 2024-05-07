@@ -1,5 +1,5 @@
 <?php
-$userEmail = $_POST['email'] ?? '';
+
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,30 @@ $userEmail = $_POST['email'] ?? '';
                         <label for="email" class="form-label">Email Adresse</label>
                         <input type="text" id="email" name="email" class="form-control">
                     </p>
-                    <button class="btn btn-primary mt-3">Send</button>
-                    <p> <?php echo $userEmail?> </p>
+                    <button class="btn btn-primary mt-3 mb-3">Send</button>
+                    <?php
+                    $user_email = $_POST['email'] ?? '';
+                    // var_dump($user_email);
+
+                    if (str_contains($user_email, '@') && str_contains($user_email, '.')) {
+                        // var_dump($user_email);
+                        ?>
+                        <p class='alert alert-success'>Sent successfully to <?php echo $user_email ?></p>
+                        <?php
+                    } elseif (str_contains($user_email, '@')) {
+                        ?>
+                        <p class='alert alert-danger'>Error '.' is not present <?php echo $user_email ?> please try again</p>
+                        <?php
+                    } elseif (str_contains($user_email, '.')) {
+                        ?>
+                        <p class='alert alert-danger'>Error '@' is not present <?php echo $user_email ?> please try again</p>
+                        <?php
+                    } else{
+                        ?>
+                        <p class='alert alert-danger'>Error '.' and '@' are not present <?php echo $user_email ?> please try again</p>
+                        <?php
+                    };
+                    ?>
                 </div>
             </div>
         </form>
