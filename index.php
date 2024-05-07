@@ -11,16 +11,17 @@
 
 <body>
     <header>
-        <div class="container">
-            <div class="text-center">
-                <h1>Newsletter</h1>
-            </div>
-        </div>
+        <?php require_once "./header.php"; ?>
     </header>
 
     <main>
         <form action="" method="post">
-            <div class="container">
+            <div class="container pad">
+                <style>
+                    .pad{
+                        padding: 200px 0 200px 0;
+                    }
+                </style>
                 <div class="input-section d-flex m-5">
                     <style>
                         .input-section {
@@ -64,7 +65,9 @@
 
 
 
-
+    <footer>
+        <?php require_once "./footer.php"; ?>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
